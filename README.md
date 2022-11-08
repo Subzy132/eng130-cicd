@@ -38,5 +38,22 @@
 
 ### Job 2
 
-git merge origin/dev
-hello hello helo test test
+1. Create a new job and give it an appropriate name 
+2.  For `general` do the same as job 1
+3.  For `Office 365 Connector` do the same as job 1
+4.  For `Source Code Management` do the same as job 1 but then tick `Additional Behaviours` and click `Merge Before build`
+    1.  `origin` as name
+    2.  `main` as branch to merge to
+5. For `build triggers` tick `Build after other projects are built` then pick job 1
+6. For `Build Environment` do the same as job 1
+7. Add a `Post-build Actions` click `Git Publisher`
+   1. Tick `Push Only If Build Succeeds`
+   2. Tick `Merge Results`
+   3. Add branch
+      1. `main` as branch
+      2. `origin` as target
+8. Click save
+9. Make a change in the dev branch
+
+
+### Job 3
