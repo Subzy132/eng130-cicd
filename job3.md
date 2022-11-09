@@ -8,3 +8,5 @@ nohup node app.js > /dev/null 2>&1 &
 sudo killall -9 node
 
 EOF
+
+t
