@@ -5,5 +5,6 @@ ssh -A -o "StrictHostKeyChecking=no" ubuntu@ec2-34-243-96-228.eu-west-1.compute.
 
 cd app
 nohup node app.js > /dev/null 2>&1 &
+sudo killall -9 node
 
 EOF

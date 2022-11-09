@@ -56,4 +56,30 @@
 9. Make a change in the dev branch
 
 
-### Job 3 test
+### Job 3 Steps
+
+1. Make a new instance 
+2. Add a new security group
+   1. SSH(22) Source - `My IP` 
+   2. SSH(22) Source - `the jenkins server ip/32`
+   3. HTTP (80) Source - `anywhere`
+3. Launch it 
+4. On Jenkins make a new job called `subhaan-cd`
+5. Set `max builds` to 3
+6. Add GitHub project url
+7. In `Office 365 connector` Tick `Restrict where this project can be run`
+8. In `Source Code Management` tick `Git` and ssh key and ssh URL
+9. `Branches to build` put `Branch specifier` as `*/main`
+10. In `Build Environment` Tick `Provide Node`
+11. Also tick SSH AGENT and add the .pem file. In my case it is the eng130.pem
+12. In `build` Select `add build step` then Execute shell and i added 
+     ```bash
+    rsync -avz -e "ssh -o StrictHostKeyChecking=no" app ubuntu@ec2-34-243-96-228.eu-west-1.compute.amazonaws.com:/home/ubuntu
+    ssh -A -o "StrictHostKeyChecking=no" ubuntu@ec2-34-243-96-228.eu-west-1.compute.amazonaws.com << EOF
+
+    cd app
+    nohup node app.js > /dev/null 2>&1 &
+
+    EOF
+    ``` 
+13. Save it and click build now and test to see if the public IP runs the app
