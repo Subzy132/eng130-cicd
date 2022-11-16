@@ -83,3 +83,37 @@
     EOF
     ``` 
 13. Save it and click build now and test to see if the public IP runs the app
+
+
+Job 4
+
+create a new ec2 using your db ami - sg with required rules
+create a forth job in jenkins
+test db - 
+kill npm
+add env var and place in bashrc
+npm install
+npm start
+
+data on prem - protected by the os and their firewalls, anti-virus
+data in transit - protected by keys
+in production -  secured by security group
+
+rsync -avz -e "ssh -o StrictHostKeyChecking=no" app ubuntu@ec2-34-243-96-228.eu-west-1.compute.amazonaws.com:/home/ubuntu
+ssh -A -o "StrictHostKeyChecking=no" ubuntu@ec2-34-243-96-228.eu-west-1.compute.amazonaws.com << EOF
+
+sudo killall -9 node
+
+cd app
+nohup node app.js > /dev/null 2>&1 &
+
+EOF
+
+ssh -A -o "StrictHostKeyChecking=no" ubuntu@54. <<EOF
+sudo killall -9 node
+export DB_HOST=mongodb://:27017/posts
+echo 'printenv=DB_HOST'
+cd app
+npm install
+nohup node app.js > /dev/null 2>&1 &
+EOF
