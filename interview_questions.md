@@ -82,7 +82,7 @@ Stateless means that the firewall does not remember the state of the connection.
 
 ## What is a VPC?
 
-
+Virtual private cloud 
 
 A VPC is a virtual network in AWS. It is a logical isolation of the AWS cloud. It allows you to launch AWS resources into a virtual network that you've defined, such as Amazon EC2 instances, into your VPC. With in a VPC you can create subnets, route tables, internet gateways, and network access control lists. These all work together to provide security and network access to your instances.
 
@@ -157,3 +157,4 @@ It is a process in software development when a group of collaborators are workin
 Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly. With Docker, you can manage your infrastructure in the same ways you manage your applications. By taking advantage of Docker’s methodologies for shipping, testing, and deploying code quickly, you can significantly reduce the delay between writing code and running it in production.
 
 a docker compose file is a yaml file which is an automation script that allows you to run multiple images at one time. if you didn't have this file you would have to run the images one by one but the containers will not be linked together. the docker compose file allows you to run one script and then have this script build as many images as you need and then connect them at the same time.
+
